@@ -36,6 +36,7 @@ exports.createPost = (req, res, next) => {
     const title = req.body.title;
     const content = req.body.content;
     const category = req.body.category;
+    let imageUrl = req.body.image;
     const post = new Post({
         title: title,
         content: content,
