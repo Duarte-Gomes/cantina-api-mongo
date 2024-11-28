@@ -19,10 +19,14 @@ const postSchema = new Schema(
       type: String,
       required: false
     },
+    active: {
+      type: Boolean,
+      required: false
+    },
     creator: {
       type: Object,
       required: true,
-  },
+    },
   },
   { timestamps: true }
 );
