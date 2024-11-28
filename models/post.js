@@ -18,7 +18,11 @@ const postSchema = new Schema(
     category: {
       type: String,
       required: false
-    }
+    },
+    creator: {
+      type: Object,
+      required: true,
+  },
   },
   { timestamps: true }
 );

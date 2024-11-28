@@ -41,6 +41,7 @@ exports.createPost = (req, res, next) => {
         title: title,
         content: content,
         imageUrl: imageUrl,
+        category: category,
         creator: { name: 'Maximilian' }
       });
     post
