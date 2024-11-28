@@ -32,17 +32,17 @@ exports.createPost = (req, res, next) => {
     //     error.statusCode = 422;
     //     throw error;
     // }
-    // const imageUrl = req.file.path.replace(/\\/g, '/');
+    const imageUrl = req.file.path.replace(/\\/g, '/');
     const title = req.body.title;
     const content = req.body.content;
     const category = req.body.category;
-    let imageUrl = req.body.image;
+    //let imageUrl = req.body.image;
     const post = new Post({
         title: title,
         content: content,
         imageUrl: imageUrl,
         category: category,
-        creator: { name: 'Maximilian' }
+        creator: { name: 'Duarte' }
       });
     post
     .save()
@@ -93,10 +93,10 @@ exports.updatePost = (req, res, next) => {
     const content = req.body.content;
     const category = req.body.category;
     let imageUrl = req.body.image;
-    if (req.file) {
-        /** REPLACE ALL '\' WITH '/' */
-        imageUrl = req.file.path.replace(/\\/g, '/');
-    }
+    // if (req.file) {
+    //     /** REPLACE ALL '\' WITH '/' */
+    //     imageUrl = req.file.path.replace(/\\/g, '/');
+    // }
     // if (!imageUrl) {
     //     const error = new Error('No file picked.');
     //     error.statusCode = 422;
