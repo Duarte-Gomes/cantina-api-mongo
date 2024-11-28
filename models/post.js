@@ -20,7 +20,7 @@ const postSchema = new Schema(
       required: false
     },
     active: {
-      type: Boolean,
+      type: String,
       required: false
     },
     creator: {
