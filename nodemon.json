@@ -1,0 +1,7 @@
+{
+    "env": {
+        "NAME": "duartecgomes",
+        "PASSWORD": "teste7723",
+        "DBNAME": "messages"
+    }
+}

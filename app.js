@@ -5,6 +5,8 @@ const mongoose = require('mongoose');
 const multer = require('multer');
 const feedRoutes = require('./routes/feed');
 const pratoRoutes = require('./routes/prato');
+const helmet = require('helmet');
+const compression = require('compression');
 
 const app = express();
 
@@ -52,6 +54,8 @@ app.use((req, res, next) => {
 
 app.use('/feed', feedRoutes);
 app.use('/cantina', pratoRoutes);
+app.use(helmet());
+app.use(compression());
 
 app.use((error, req, res, next) => {
   console.log(error);
@@ -62,9 +66,9 @@ app.use((error, req, res, next) => {
 
 mongoose
 .connect(
-  'mongodb+srv://duartecgomes:teste7723@cluster0.752m5.mongodb.net/messages?retryWrites=true&w=majority&appName=Cluster0'
+  `mongodb+srv://${process.env.USER}:${process.env.PASSWORD}@cluster0.752m5.mongodb.net/${process.env.DBNAME}?retryWrites=true&w=majority&appName=Cluster0`
 )
 .then(result => {
-  app.listen(8080);
+  app.listen(process.env.PORT || 8080);
 })
 .catch(err => console.log(err));
